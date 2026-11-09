@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a0d">
+
+  <title>İletişim | MG TAG</title>
+
+  <meta name="description"
+    content="MG TAG dijital kimlik ve NFC çözümleri hakkında bizimle iletişime geçin.">
+
+  <style>
+    :root {
+      --gold: #ffbf16;
+      --gold-light: #ffdf76;
+      --bg: #07090d;
+      --card: #15181e;
+      --muted: #a9aeb8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: white;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          ellipse at 50% 10%,
+          #6d470d30,
+          transparent 55%
+        ),
+        radial-gradient(
+          ellipse at 5% 80%,
+          #b68b1015,
+          transparent 50%
+        );
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ÜST MENÜ */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #080a0def;
+      border-bottom: 1px solid #b88a2845;
+      backdrop-filter: blur(20px);
+      padding: 20px 5%;
+    }
+
+    .navbar {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 700;
+      color: #d4d4d4;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--gold);
+    }
+
+    /* SAYFA BAŞLIĞI */
+
+    .hero {
+      padding: 85px 20px 45px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 11px 18px;
+      border: 1px solid #bd8d2755;
+      border-radius: 50px;
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: #ffb9000b;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 6vw, 65px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin: 25px 0;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .line {
+      width: 120px;
+      height: 3px;
+      margin: 30px auto 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
+      box-shadow: 0 0 25px #ffbf16;
+    }
+
+    /* İLETİŞİM KARTLARI */
+
+    .container {
+      max-width: 1120px;
+      margin: auto;
+      padding: 20px 5% 90px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      padding: 35px 25px;
+      background: linear-gradient(
+        145deg,
+        #1b1e22,
+        #0b0c10
+      );
+      border: 1px solid #b4893255;
+      border-radius: 25px;
+      text-align: center;
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top right,
+        #ffbf1615,
+        transparent 65%
+      );
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-9px);
+      border-color: var(--gold);
+      box-shadow: 0 0 35px #ffbf1625;
+    }
+
+    .icon {
+      width: 85px;
+      height: 85px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 25px;
+      font-size: 38px;
+    }
+
+    .whatsapp-icon {
+      background: #143827;
+      box-shadow: 0 0 25px #16b85d25;
+    }
+
+    .instagram-icon {
+      background: #412036;
+      box-shadow: 0 0 25px #d946ef20;
+    }
+
+    .email-icon {
+      background: #1e314c;
+      box-shadow: 0 0 25px #3b82f620;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin: 0 0 12px;
+    }
+
+    .card p {
+      color: #b7bbc3;
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 75px;
+    }
+
+    .detail {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      margin: 15px 0 25px;
+      overflow-wrap: anywhere;
+    }
+
+    /* BUTONLAR */
+
+    .btn {
+      position: relative;
+      display: block;
+      padding: 16px 10px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.12);
+    }
+
+    .btn-whatsapp {
+      background: #16b85d;
+      color: white;
+    }
+
+    .btn-instagram {
+      background: linear-gradient(
+        135deg,
+        #833ab4,
+        #e1306c,
+        #f77737
+      );
+      color: white;
+    }
+
+    .btn-email {
+      background: linear-gradient(
+        135deg,
+        #ffe065,
+        #ffb900
+      );
+      color: #111;
+    }
+
+    /* ALT MESAJ */
+
+    .bottom-box {
+      text-align: center;
+      margin-top: 65px;
+      padding: 45px 20px;
+      border: 1px solid #b4893255;
+      border-radius: 25px;
+      background: radial-gradient(
+        ellipse at bottom,
+        #ffbf1615,
+        #101216 70%
+      );
+    }
+
+    .bottom-box h2 {
+      font-size: 28px;
+      margin: 0 0 15px;
+    }
+
+    .bottom-box p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ALT BİLGİ */
+
+    footer {
+      border-top: 1px solid #bc8c2f55;
+      text-align: center;
+      color: #9fa3ab;
+      padding: 35px 20px;
+      font-size: 13px;
+    }
+
+    /* ANİMASYON */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: appear .8s forwards;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: .3s;
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TELEFON UYUMU */
+
+    @media(max-width: 850px) {
+      .cards {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: auto;
+      }
+
+      .card p {
+        min-height: auto;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .logo {
+        font-size: 28px;
+      }
+
+      .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .bottom-box h2 {
+        font-size: 23px;
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ÜST MENÜ -->
+
+<header>
+  <nav class="navbar">
+
+    <a href="index.html" class="logo">
+      MG<span class="gold">TAG</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="araclar.html">Araçlar</a>
+      <a href="randevu.html">Randevu Al</a>
+      <a href="iletisim.html" class="active">
+        İletişim
+      </a>
+    </div>
+
+  </nav>
+</header>
+
+<!-- BAŞLIK -->
+
+<section class="hero">
+
+  <span class="eyebrow">
+    ✦ MG TAG İLETİŞİM
+  </span>
+
+  <h1>
+    Geleceğe <span class="gold">Birlikte</span>
+    <br>Dokunalım.
+  </h1>
+
+  <p>
+    MG TAG dijital kimlik ve NFC çözümleri hakkında
+    sorularınız mı var?
+
+    Projeleriniz, önerileriniz ve iş birlikleri
+    için bizimle kolayca iletişime geçebilirsiniz.
+  </p>
+
+  <div class="line"></div>
+
+</section>
+
+<!-- İLETİŞİM KARTLARI -->
+
+<main class="container">
+
+  <div class="cards">
+
+    <!-- WHATSAPP -->
+
+    <article class="card reveal">
+
+      <div class="icon whatsapp-icon">
+        💬
+      </div>
+
+      <h2>WhatsApp</h2>
+
+      <p>
+        Sorularınız ve destek talepleriniz
+        için bize doğrudan WhatsApp
+        üzerinden yazabilirsiniz.
+      </p>
+
+      <div class="detail">
+        0539 608 94 18
+      </div>
+
+      <a
+        class="btn btn-whatsapp"
+        href="https://wa.me/905396089418?text=Merhaba%20MG%20TAG"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        💬 WhatsApp'tan Yaz →
+      </a>
+
+    </article>
+
+    <!-- INSTAGRAM -->
+
+    <article class="card reveal">
+
+      <div class="icon instagram-icon">
+        ◎
+      </div>
+
+      <h2>Instagram</h2>
+
+      <p>
+        MG TAG dünyasındaki yenilikleri,
+        duyuruları ve gelişmeleri
+        Instagram hesabımızdan takip edin.
+      </p>
+
+      <div class="detail">
+        @mg.tagg
+      </div>
+
+      <a
+        class="btn btn-instagram"
+        href="https://www.instagram.com/mg.tagg/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ◎ Instagram'a Git →
+      </a>
+
+    </article>
+
+    <!-- E-POSTA -->
+
+    <article class="card reveal">
+
+      <div class="icon email-icon">
+        ✉️
+      </div>
+
+      <h2>E-posta</h2>
+
+      <p>
+        Kurumsal iş birlikleri,
+        proje teklifleri ve
+        detaylı bilgi talepleriniz
+        için e-posta gönderin.
+      </p>
+
+      <div class="detail">
+        mgunes.3754@gmail.com
+      </div>
+
+      <a
+        class="btn btn-email"
+        href="mailto:mgunes.3754@gmail.com?subject=MG%20TAG%20İletişim"
+      >
+        ✉️ E-posta Gönder →
+      </a>
+
+    </article>
+
+  </div>
+
+  <!-- ALT MESAJ -->
+
+  <section class="bottom-box">
+
+    <h2>
+      Bir Fikriniz mi
+      <span class="gold">Var?</span>
+    </h2>
+
+    <p>
+      Yeni nesil dijital kimlik teknolojilerini
+      birlikte geliştirebiliriz.
+
+      MG TAG olarak yeni fikirleri,
+      iş birliklerini ve teknolojik
+      çözümleri önemsiyoruz.
+    </p>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  © <span id="year"></span>
+  MG TAG · Dijital Kimlik & NFC Çözümleri
+
+  <br><br>
+
+  TEK SİSTEM · ÇOK ALAN · SINIRSIZ GELİŞİM
+
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
