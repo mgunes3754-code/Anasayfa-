@@ -8,6 +8,21 @@
 <title>MG TAG | Çok Amaçlı Dijital Kimlik Sistemi</title>
 <meta name="description" content="MG TAG NFC teknolojisiyle araç, evcil hayvan ve dijital kimlik bilgilerinizi tek dokunuşla erişilebilir hale getirir.">
 <style>
+  .solution-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ffbf1655;
+  filter: brightness(.85) saturate(.85);
+  transition: .3s;
+}
+
+.solution:hover .solution-img {
+  filter: brightness(1);
+  transform: scale(1.02);
+}
 :root{
   --gold:#ffbf16;
   --gold2:#ffdf76;
@@ -650,12 +665,12 @@ button{font:inherit;cursor:pointer}
       <div class="solution-floats">
 
         <div class="float-tile tile1">
-          <i>🚘</i>
+          <img src="arac.png" class="float-img" alt="MGTAG Araçlar">
           <b>Araçlar</b>
         </div>
 
         <div class="float-tile tile2">
-          <i>🐾</i>
+          <img src="evcil.png" class="float-img" alt="MGTAG Evcil Hayvanlar">
           <b>Evcil Hayvanlar</b>
         </div>
 
@@ -751,7 +766,7 @@ button{font:inherit;cursor:pointer}
     <div class="cards">
 
       <a href="araclar.html" class="solution reveal">
-  <span class="symbol">🚘</span>
+  <img src="arac.png" class="solution-img" alt="MGTAG Araçlar">
   <h3>Araçlar</h3>
         <p>
           Bakım geçmişi ve araç bilgilerine
@@ -761,7 +776,7 @@ button{font:inherit;cursor:pointer}
       </a>
 
       <article class="solution reveal">
-        <span class="symbol">🐾</span>
+        <img src="evcil.png" class="solution-img" alt="MGTAG Evcil Hayvanlar">
         <h3>Evcil Hayvanlar</h3>
         <p>
           Evcil dostlarınız için dijital kimlik
