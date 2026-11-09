@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Araçlar | MG TAG</title>
+<meta name="theme-color" content="#080a0d">
+<meta name="description" content="MG TAG NFC dijital araç bakım kartları. Bakım geçmişiniz tek dokunuşta.">
+
+<style>
+:root {
+  --bg: #080a0d;
+  --panel: #15191f;
+  --panel2: #20252d;
+  --gold: #ffbf16;
+  --gold-light: #ffdf76;
+  --text: #ffffff;
+  --muted: #b9c0ca;
+  --border: #a9823266;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1160px, 92%); margin: auto; }
+.gold { color: var(--gold); }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #090b0ef5;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
+}
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
+}
+.logo span { color: var(--gold); }
+.logo small {
+  display: block;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.links a:hover { color: var(--gold); }
+.menu-btn {
+  display: none;
+  background: none;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 23px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 23px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  transition: .2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px #ffbf1640;
+}
+.btn-gold {
+  color: #080a0d;
+  background: linear-gradient(135deg, #ffe57c, #ffb900);
+  box-shadow: 0 0 24px #ffbf1633;
+}
+.hero {
+  position: relative;
+  padding: 85px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 35%, #92600d25, transparent 55%),
+    #080a0d;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 35px;
+  align-items: center;
+}
+.eyebrow {
+  display: inline-block;
+  padding: 9px 15px;
+  color: var(--gold-light);
+  background: #ffbf1610;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+h1 {
+  font-size: clamp(38px, 5.2vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 24px 0;
+}
+.hero p, .section-desc {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.nfc-art {
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+}
+.orbit {
+  width: min(360px, 90%);
+  aspect-ratio: 1;
+  border: 2px solid #d69d3870;
+  border-radius: 50%;
+  box-shadow: 0 0 45px #ffbf1625;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border: 1px dashed #d69d3880;
+  border-radius: 50%;
+}
+.nfc-card {
+  position: relative;
+  width: 83%;
+  padding: 26px;
+  background: linear-gradient(145deg, #272b30, #080a0d);
+  border: 1px solid var(--gold);
+  border-radius: 22px;
+  box-shadow: 0 15px 45px #ffbf1640;
+  transform: rotate(-8deg);
+}
+.nfc-card-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-weight: 900;
+}
+.car-icon {
+  font-size: 75px;
+  text-align: center;
+  margin: 20px 0;
+}
+.nfc-card-bottom {
+  padding-top: 15px;
+  border-top: 1px solid #7b612d;
+  color: #d3d3d3;
+  font-size: 12px;
+}
+section.content { padding: 75px 0; }
+.section-heading { text-align: center; margin-bottom: 38px; }
+.section-heading h2 {
+  font-size: clamp(29px, 4vw, 43px);
+  margin: 15px 0;
+}
+.section-heading p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.feature, .step {
+  padding: 28px;
+  background: linear-gradient(145deg, #1d2127, #0d1015);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.feature-icon { font-size: 35px; color: var(--gold); }
+.feature h3, .demo h3 { color: var(--gold-light); }
+.feature p, .step p {
+  line-height: 1.7;
+  color: var(--muted);
+  font-size: 14px;
+}
+.details {
+  padding: 40px;
+  background: linear-gradient(145deg, #1a1e24, #0e1116);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+}
+.details h2 { font-size: clamp(27px, 3.5vw, 40px); }
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+}
+.demo, .record-list {
+  padding: 25px;
+  border-radius: 18px;
+  background: var(--panel2);
+}
+.demo-tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.stat {
+  background: #10151b;
+  border-radius: 12px;
+  padding: 14px;
+}
+.stat small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.stat strong { font-size: 17px; }
+ul.checks { list-style: none; padding: 0; }
+.checks li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff12;
+  color: #dde0e5;
+  font-size: 14px;
+}
+.checks li::before {
+  content: "✓";
+  color: var(--gold);
+  margin-right: 10px;
+}
+.disclaimer { font-size: 12px; color: var(--muted); }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.step-number {
+  font-size: 31px;
+  font-weight: 900;
+  color: var(--gold);
+}
+.service {
+  margin-top: 45px;
+  padding: 35px;
+  border: 1px solid var(--gold);
+  border-radius: 23px;
+  background: radial-gradient(ellipse at 90% 0%, #ffbf161b, transparent 65%), #161a20;
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  align-items: center;
+}
+.service p { color: var(--muted); line-height: 1.7; }
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+#sistem, #nasil { scroll-margin-top: 100px; }
+
+@media(max-width: 850px) {
+  .hero-grid, .two-cols { grid-template-columns: 1fr; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: 55px 0; }
+}
+@media(max-width: 600px) {
+  nav { flex-wrap: wrap; }
+  .links {
+    display: none;
+    order: 4;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px 0 22px;
+  }
+  .links.open { display: flex; }
+  .menu-btn { display: block; }
+  .logo { font-size: 23px; }
+  .nav-login { padding: 10px 13px; font-size: 12px; }
+  .features, .steps { grid-template-columns: 1fr; }
+  .details { padding: 23px; }
+  .service { flex-direction: column; align-items: stretch; }
+  .nfc-art { min-height: 280px; }
+  .orbit { width: 270px; }
+  .nfc-card { padding: 18px; }
+  .car-icon { font-size: 55px; }
+  .actions .btn { flex: 1; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container">
+    <a class="logo" href="/">
+      MG<span>TAG</span>
+      <small>DİJİTAL KİMLİK & TAKİP SİSTEMİ</small>
+    </a>
+    <div class="links" id="links">
+      <a href="/">Ana Sayfa</a>
+      <a href="/araclar.html" class="gold">Araçlar</a>
+      <a href="#sistem">Sistem</a>
+      <a href="#nasil">Nasıl Çalışır?</a>
+    </div>
+    <a class="btn nav-login" href="https://mg-tag-giris-f7jzpbb87m-2133.vercel.app">
+      🔐 Usta Girişi
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">MG TAG NFC · ARAÇLAR</span>
+        <h1>Araçlar İçin <span class="gold">Dijital Bakım Kartları</span></h1>
+        <p>Aracınızın yağ değişimi ve bakım geçmişi tek dokunuşla yanınızda. Fiziksel bakım kartının modern, dijital haliyle tanışın.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="https://mgtag.car.blog/randevu/">📅 Randevu Al</a>
+          <a class="btn" href="#sistem">Sistemi İncele ↓</a>
+        </div>
+      </div>
+      <div class="nfc-art">
+        <div class="orbit">
+          <div class="nfc-card">
+            <div class="nfc-card-top"><span>MG TAG</span><span>◉ NFC</span></div>
+            <div class="car-icon">🚘</div>
+            <div class="nfc-card-bottom">DİJİTAL ARAÇ BAKIM KARTI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">AKILLI BAKIM TAKİBİ</span>
+        <h2>Her Şey <span class="gold">Tek Dokunuşta</span></h2>
+        <p>Aracınızın bakım bilgilerine istediğiniz zaman kolayca erişin.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <div class="feature-icon">▤</div>
+          <h3>Bakım Geçmişi</h3>
+          <p>Yağ değişimlerini, filtre değişimlerini ve servis geçmişini tek ekranda görüntüleyin.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">◉</div>
+          <h3>NFC ile Erişim</h3>
+          <p>Telefonunuzu NFC etiketine yaklaştırın; aracınızın dijital bakım sayfası açılsın.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">↻</div>
+          <h3>Güncel Kayıtlar</h3>
+          <p>Yetkili servis tarafından girilen bakım işlemleri dijital araç geçmişine eklenir.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content" id="sistem">
+    <div class="container">
+      <div class="details">
+        <span class="eyebrow">DİJİTAL YAĞ DEĞİŞİM KARTI</span>
+        <h2>Bakım Bilgileri <span class="gold">Tek Ekranda</span></h2>
+        <p class="section-desc">Müşteri NFC etiketini okuttuğunda bakım geçmişini görüntüler. Bakım bilgilerini yalnızca yetkili kullanıcılar değiştirebilir.</p>
+        <div class="two-cols">
+          <div class="demo">
+            <span class="demo-tag">ÖRNEK DİJİTAL KART</span>
+            <h3>🚘 Araç Bakım Özeti</h3>
+            <div class="stats">
+              <div class="stat"><small>Son Bakım</small><strong>15.10.2026</strong></div>
+              <div class="stat"><small>Bakım KM</small><strong>120.000 km</strong></div>
+              <div class="stat"><small>Sonraki Bakım</small><strong>130.000 km</strong></div>
+              <div class="stat"><small>Durum</small><strong class="gold">Kayıtlı</strong></div>
+            </div>
+            <ul class="checks">
+              <li>Motor yağı değişti</li>
+              <li>Yağ filtresi değişti</li>
+              <li>Hava filtresi kontrol edildi</li>
+              <li>Antifriz kontrol edildi</li>
+            </ul>
+            <p class="disclaimer">Bu bilgiler örnektir, gerçek müşteri kaydı değildir.</p>
+          </div>
+          <div class="record-list">
+            <h3 class="gold">Neler Kaydedilir?</h3>
+            <ul class="checks">
+              <li>Yağ değişim tarihi ve kilometre</li>
+              <li>Sonraki bakım kilometresi</li>
+              <li>Motor yağı ve yağ filtresi</li>
+              <li>Hava, polen ve yakıt filtresi</li>
+              <li>Şanzıman ve diferansiyel yağı</li>
+              <li>Buji ve antifriz</li>
+              <li>Servis notları</li>
+              <li>Geçmiş bakım kayıtları</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content" id="nasil">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">4 BASİT ADIM</span>
+        <h2>Sistem <span class="gold">Nasıl Çalışır?</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-number">01</div><h3>Araç Kaydı</h3><p>Yetkili usta aracın kaydını oluşturur.</p></div>
+        <div class="step"><div class="step-number">02</div><h3>Bakım</h3><p>Yapılan işlemler aracın bakım geçmişine eklenir.</p></div>
+        <div class="step"><div class="step-number">03</div><h3>NFC Eşleştirme</h3><p>Araca özel bağlantı NFC etiketiyle eşleştirilir.</p></div>
+        <div class="step"><div class="step-number">04</div><h3>Görüntüleme</h3><p>Müşteri NFC etiketini okutup kayıtlarını görüntüler.</p></div>
+      </div>
+
+      <div class="service">
+        <div>
+          <span class="eyebrow">YETKİLİ SERVİSLERE ÖZEL</span>
+          <h2>Usta Girişi ve <span class="gold">Araç Yönetimi</span></h2>
+          <p>Yetkili kullanıcılar araç kaydı, plaka sorgulama, bakım geçmişi ve servis işlemlerini yönetebilir.</p>
+        </div>
+        <a class="btn btn-gold" href="https://mg-tag-giris-f7jzpbb87m-2133.vercel.app">🔐 Usta Girişine Git</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year">2026</span> MG TAG · Dijital Araç Bakım Sistemi
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const menuBtn = document.getElementById("menuBtn");
+const links = document.getElementById("links");
+
+menuBtn.addEventListener("click", () => {
+  const open = links.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.textContent = open ? "✕" : "☰";
+});
+
+links.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    links.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+</script>
+</body>
+</html>
