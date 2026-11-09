@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Randevu Al | MG TAG</title>
+
+  <meta name="description"
+        content="MG TAG anlaşmalı servislerinden WhatsApp üzerinden araç bakım ve servis randevusu alın.">
+
+  <meta name="theme-color" content="#080a0d">
+
+  <style>
+    :root {
+      --gold: #ffbf16;
+      --gold-light: #ffdf76;
+      --bg: #07090d;
+      --card: #15181e;
+      --muted: #a9aeb8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: white;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(
+          ellipse at 50% 10%,
+          #6d470d35,
+          transparent 55%
+        );
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ÜST MENÜ */
+
+    header {
+      background: #080a0def;
+      border-bottom: 1px solid #b88a2855;
+      padding: 19px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+    }
+
+    .navbar {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 1000;
+      font-style: italic;
+      letter-spacing: -2px;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #dddddd;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    /* SAYFA BAŞLIĞI */
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 45px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #bd8d2755;
+      background: #ffb9000b;
+      border-radius: 50px;
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      margin: 22px 0 15px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 620px;
+      margin: auto;
+    }
+
+    .line {
+      width: 120px;
+      height: 3px;
+      margin: 28px auto;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
+      box-shadow: 0 0 20px var(--gold);
+    }
+
+    /* FİRMA KARTLARI */
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px 5% 85px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        #1b1e22,
+        #0b0c10
+      );
+      border: 1px solid #b4893260;
+      border-radius: 26px;
+      padding: 32px 25px;
+      text-align: center;
+      transition: .3s;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: 0 0 35px #ffbf1625;
+    }
+
+    .avatar {
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 20px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 22px #ffbf1633;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar .emoji {
+      font-size: 65px;
+    }
+
+    .card h2 {
+      font-size: 26px;
+      margin: 10px 0;
+      color: var(--gold);
+    }
+
+    .subtitle {
+      color: #b7bbc3;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    /* HİZMETLER */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .service {
+      background: #101216;
+      border: 1px solid #6f5a3280;
+      border-radius: 12px;
+      padding: 15px 5px;
+      font-size: 12px;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service span {
+      font-size: 24px;
+    }
+
+    /* BUTONLAR */
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 17px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .whatsapp {
+      background: #16b85d;
+      color: white;
+      box-shadow: 0 0 18px #16b85d33;
+    }
+
+    .whatsapp:hover {
+      background: #129d4e;
+    }
+
+    .location {
+      background: linear-gradient(
+        135deg,
+        #ffe065,
+        #ffb900
+      );
+      color: #111;
+      box-shadow: 0 0 18px #ffbf1635;
+    }
+
+    /* ADRES */
+
+    .address {
+      margin-top: 25px;
+      padding: 18px;
+      text-align: left;
+      background: #101216;
+      border: 1px solid #b4893245;
+      border-radius: 15px;
+    }
+
+    .address strong {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .address p {
+      color: #c1c4cc;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* ALT BİLGİ */
+
+    footer {
+      border-top: 1px solid #bc8c2f55;
+      text-align: center;
+      padding: 35px 20px;
+      color: #9fa3ab;
+      font-size: 13px;
+    }
+
+    /* MOBİL UYUM */
+
+    @media (max-width: 760px) {
+      header {
+        padding: 19px 5%;
+      }
+
+      .logo {
+        font-size: 26px;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 55px 20px 30px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 28px 18px;
+      }
+
+      .container {
+        padding-bottom: 60px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ÜST MENÜ -->
+
+<header>
+  <nav class="navbar">
+
+    <a href="index.html" class="logo">
+      MG<span class="gold">TAG</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="araclar.html">Araçlar</a>
+      <a href="randevu.html" class="active">Randevu Al</a>
+    </div>
+
+  </nav>
+</header>
+
+<!-- SAYFA BAŞLIĞI -->
+
+<section class="hero">
+
+  <div class="eyebrow">
+    ✦ MG TAG SERVİS AĞI
+  </div>
+
+  <h1>
+    Servis & <span class="gold">Randevu</span>
+  </h1>
+
+  <p>
+    Aracınız için bakım ve servis hizmeti almak
+    istediğiniz firmayı seçin.
+    WhatsApp üzerinden kolayca randevu talebi oluşturun.
+  </p>
+
+  <div class="line"></div>
+
+</section>
+
+<!-- FİRMALAR -->
+
+<main class="container">
+
+  <div class="cards">
+
+    <!-- MKY MOTORS -->
+
+    <article class="card">
+
+      <div class="avatar">
+        <img
+          src="https://mgtagcar.wordpress.com/wp-content/uploads/2026/10/img_5477.jpeg"
+          alt="MKY Motors Logosu"
+        >
+      </div>
+
+      <h2>MKY MOTORS</h2>
+
+      <p class="subtitle">
+        Profesyonel Servis ve Araç Bakımı
+      </p>
+
+      <div class="services">
+
+        <div class="service">
+          <span>⚙️</span>
+          Servis
+        </div>
+
+        <div class="service">
+          <span>🚘</span>
+          Araç Bakımı
+        </div>
+
+        <div class="service">
+          <span>📅</span>
+          Randevu
+        </div>
+
+      </div>
+
+      <div class="buttons">
+
+        <a
+          class="btn whatsapp"
+          href="https://wa.me/905396089418?text=Merhaba%20MKY%20Motors%2C%0A%0AArac%C4%B1m%20i%C3%A7in%20bak%C4%B1m%20veya%20servis%20randevusu%20olu%C5%9Fturmak%20istiyorum.%20Uygun%20g%C3%BCn%20ve%20saatleriniz%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%0A%0ATe%C5%9Fekk%C3%BCr%20ederim."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬 WhatsApp'tan Randevu Al
+        </a>
+
+        <a
+          class="btn location"
+          href="https://maps.apple/p/iQI-0ELqcZVNe3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📍 Konuma Git
+        </a>
+
+      </div>
+
+      <div class="address">
+
+        <strong>📍 Servis Adresi</strong>
+
+        <p>
+          Yeşiltepe, D100 Yanyol<br>
+          54200 Erenler / Sakarya
+        </p>
+
+      </div>
+
+    </article>
+
+    <!-- YILKIN TİCARET -->
+
+    <article class="card">
+
+      <div class="avatar">
+        <span class="emoji">🔧</span>
+      </div>
+
+      <h2>YILKIN TİCARET</h2>
+
+      <p class="subtitle">
+        Servis ve Teknik İşlemler
+      </p>
+
+      <div class="services">
+
+        <div class="service">
+          <span>🔧</span>
+          Servis
+        </div>
+
+        <div class="service">
+          <span>⚙️</span>
+          Teknik İşlem
+        </div>
+
+        <div class="service">
+          <span>📅</span>
+          Randevu
+        </div>
+
+      </div>
+
+      <div class="buttons">
+
+        <a
+          class="btn whatsapp"
+          href="https://wa.me/905396089418?text=Merhaba%20Y%C4%B1lk%C4%B1n%20Ticaret%2C%0A%0AArac%C4%B1m%20i%C3%A7in%20bak%C4%B1m%20veya%20servis%20randevusu%20olu%C5%9Fturmak%20istiyorum.%20Uygun%20g%C3%BCn%20ve%20saatleriniz%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%0A%0ATe%C5%9Fekk%C3%BCr%20ederim."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬 WhatsApp'tan Randevu Al
+        </a>
+
+        <a
+          class="btn location"
+          href="https://maps.apple/p/.oPD2QkokCQAK7"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📍 Konuma Git
+        </a>
+
+      </div>
+
+      <div class="address">
+
+        <strong>📍 Servis Adresi</strong>
+
+        <p>
+          Akyazı Sanayi Sitesi<br>
+          J Blok No:14<br>
+          54400 Akyazı / Sakarya
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</main>
+
+<!-- ALT BİLGİ -->
+
+<footer>
+  © <span id="year"></span>
+  MG TAG · Dijital Servis Deneyimi
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
