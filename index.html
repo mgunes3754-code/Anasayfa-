@@ -254,3 +254,789 @@ button{font:inherit;cursor:pointer}
 .tile2{top:0;left:38%;animation-delay:-1s}
 .tile3{top:8%;right:0;transform:rotate(9deg);animation-delay:-2s}
 .tile4{bottom:5%;right:0;animation-delay:-3s}
+
+.feature-strip{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border:1px solid #e4ad4d;
+  border-radius:22px;
+  background:linear-gradient(100deg,#17191c,#090a0d);
+  box-shadow:0 0 22px #dca33430;
+  padding:20px 10px;
+  gap:8px;
+  margin-top:0;
+}
+
+.feature{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:6px;
+  border-right:1px solid #a9a9a950;
+}
+
+.feature:last-child{border:0}
+.feature .ico{font-size:31px;color:var(--gold)}
+.feature b{font-size:13px}
+
+.feature small{
+  display:block;
+  color:#aeb0b6;
+  margin-top:4px;
+  font-size:11px;
+}
+
+.section{padding:90px 0}
+
+.section-title{
+  text-align:center;
+  margin-bottom:42px;
+}
+
+.section-title h2{
+  font-size:clamp(30px,4vw,48px);
+  margin:10px 0;
+}
+
+.section-title p{
+  color:var(--muted);
+  max-width:650px;
+  margin:auto;
+  line-height:1.7;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.solution{
+  background:linear-gradient(145deg,#1b1e22,#0b0c10);
+  border:1px solid #b489324e;
+  border-radius:24px;
+  padding:30px 24px;
+  min-height:260px;
+  transition:.35s;
+  position:relative;
+  overflow:hidden;
+}
+
+.solution:before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right,#ffb9001b,transparent 65%);
+  pointer-events:none;
+}
+
+.solution:hover{
+  transform:translateY(-10px);
+  border-color:var(--gold);
+  box-shadow:0 0 32px #ffb90035;
+}
+
+.solution .symbol{
+  font-size:52px;
+  display:block;
+  margin-bottom:22px;
+}
+
+.solution h3{
+  margin:0 0 12px;
+  font-size:20px;
+}
+
+.solution p{
+  color:#b7bbc3;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.tag{
+  display:inline-block;
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:1px;
+  margin-top:10px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.step{
+  background:linear-gradient(145deg,#1a1d20,#0b0d11);
+  border:1px solid #bc8e384a;
+  border-radius:20px;
+  padding:30px;
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+
+.step .number{
+  background:var(--gold);
+  color:#111;
+  border-radius:50%;
+  min-width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+
+.step .emoji{font-size:38px}
+.step h3{margin:0 0 8px}
+
+.step p{
+  margin:0;
+  color:#afb3bd;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.advantage{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.advantage>div{
+  border-top:2px solid var(--gold);
+  background:#15171b;
+  padding:27px;
+  border-radius:0 0 16px 16px;
+}
+
+.advantage h3{margin:0 0 10px}
+
+.advantage p{
+  color:#b5b8be;
+  line-height:1.6;
+  margin:0;
+}
+
+.cta{
+  background:radial-gradient(ellipse at 50% 120%,#ffb90025,transparent 60%),#101216;
+  border:1px solid #c79642;
+  border-radius:30px;
+  text-align:center;
+  padding:65px 25px;
+  margin-bottom:70px;
+}
+
+.cta h2{
+  font-size:clamp(28px,4vw,48px);
+  margin:0 0 15px;
+}
+
+.cta p{
+  color:#c4c6cd;
+  margin-bottom:30px;
+}
+
+.footer{
+  border-top:1px solid #bc8c2f55;
+  padding:35px 0;
+  color:#9fa3ab;
+  font-size:13px;
+}
+
+.footer .shell{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .8s,transform .8s;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translate(-50%,-50%) rotate(-11deg) rotateY(-13deg);
+  }
+  50%{
+    transform:translate(-50%,-60%) rotate(-8deg) rotateY(-9deg);
+  }
+}
+
+@keyframes tile{
+  0%,100%{translate:0 0}
+  50%{translate:0 -12px}
+}
+
+@keyframes pulse{
+  to{
+    opacity:.8;
+    filter:blur(3px);
+  }
+}
+
+@media(max-width:1100px){
+  .links{gap:13px}
+  .links a{font-size:11px}
+  .nav .btn{padding:11px}
+  .hero{grid-template-columns:1fr}
+  .hero-content{padding-top:65px}
+  .visual{height:500px}
+  .feature-strip{grid-template-columns:repeat(3,1fr)}
+  .feature:nth-child(3){border:0}
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:760px){
+  .header{height:74px}
+  .logo b{font-size:27px}
+  .hamb{display:block}
+
+  .links{
+    display:none;
+    position:absolute;
+    top:74px;
+    left:0;
+    right:0;
+    background:#0d0e12;
+    padding:22px 6%;
+    border-bottom:1px solid #ad812b;
+    flex-direction:column;
+    align-items:stretch;
+    gap:20px;
+  }
+
+  .links.open{display:flex}
+  .links a{font-size:16px}
+  .actions{margin-left:auto}
+  .actions .btn{display:none}
+  .hero{min-height:0}
+  .hero h1{letter-spacing:-4px}
+  .hero-content{padding-top:52px}
+  .hero p{font-size:15px}
+  .visual{height:450px;margin-top:20px}
+  .float-tile{width:105px;min-height:100px}
+  .float-tile i{font-size:29px}
+  .float-tile b{font-size:11px}
+  .tile1{top:8%;left:0}
+  .tile2{top:2%;left:37%}
+  .tile3{top:12%;right:0}
+  .tile4{bottom:0;right:2%}
+  .nfc-card{width:250px;height:150px}
+  .nfc-card strong{font-size:33px}
+  .ring{width:85%}
+  .feature-strip{grid-template-columns:repeat(2,1fr)}
+  .feature{justify-content:flex-start}
+  .feature:nth-child(3){border-right:1px solid #a9a9a950}
+  .feature:nth-child(even){border-right:0}
+  .feature:last-child{grid-column:span 2}
+  .cards,.steps,.advantage{grid-template-columns:1fr}
+  .section{padding:65px 0}
+  .footer .shell{flex-direction:column}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation:none!important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="shell nav">
+
+    <a class="logo" href="#anasayfa" aria-label="MG TAG Ana Sayfa">
+      <b>MG<span>TAG</span></b>
+      <small>DİJİTAL KİMLİK & TAKİP SİSTEMİ</small>
+    </a>
+
+    <div class="links" id="navlinks">
+      <a href="#anasayfa" class="active">⌂ Ana Sayfa</a>
+      <a href="#nasil">Nasıl Çalışır?</a>
+      <a href="#cozumler">Çözümler</a>
+      <a href="#avantajlar">Avantajlar</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="#yetkili">♢ Yetkili Girişi</a>
+      <a class="btn gold" href="#iletisim">✆ İletişim</a>
+    </div>
+
+    <button class="hamb" id="menu" aria-label="Menüyü aç" aria-expanded="false">
+      ☰
+    </button>
+
+  </nav>
+</header>
+
+<main>
+
+  <!-- ANA SAYFA -->
+
+  <section id="anasayfa" class="shell hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        ✦ GELECEĞİN DİJİTAL KİMLİĞİ
+      </div>
+
+      <h1>MG<span class="gradient">TAG</span></h1>
+
+      <h2>
+        Çok Amaçlı
+        <span class="gradient">Dijital Kimlik Sistemi</span>
+      </h2>
+
+      <p>
+        Araçlardan evcil hayvanlara, kişisel kartlardan
+        kurumsal çözümlere kadar birçok alanda bilgi,
+        bakım ve kimlik yönetimini tek dokunuşla
+        dijitalleştirir.
+      </p>
+
+      <div class="hero-ctas">
+        <a class="btn gold" href="#cozumler">
+          Çözümleri Keşfet →
+        </a>
+
+        <a class="btn" href="#nasil">
+          ▷ Nasıl Çalışır?
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ANİMASYONLU NFC KART -->
+
+    <div class="visual" aria-label="Animasyonlu MG TAG NFC kartı">
+
+      <div class="orb"></div>
+      <div class="ring"></div>
+      <div class="ring two"></div>
+
+      <div class="solution-floats">
+
+        <div class="float-tile tile1">
+          <i>🚘</i>
+          <b>Araçlar</b>
+        </div>
+
+        <div class="float-tile tile2">
+          <i>🐾</i>
+          <b>Evcil Hayvanlar</b>
+        </div>
+
+        <div class="float-tile tile3">
+          <i>▣</i>
+          <b>Kişisel Kimlik</b>
+        </div>
+
+        <div class="float-tile tile4">
+          <i>✦</i>
+          <b>Ve Daha Fazlası</b>
+        </div>
+
+      </div>
+
+      <div class="nfc-card">
+        <strong>MG<span>TAG</span></strong>
+        <em>◉ NFC</em>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ÖZELLİKLER -->
+
+  <div class="shell">
+
+    <div class="feature-strip reveal">
+
+      <div class="feature">
+        <span class="ico">◉</span>
+        <div>
+          <b>NFC Teknolojisi</b>
+          <small>Tek Dokunuşla Erişim</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span class="ico">☁</span>
+        <div>
+          <b>Dijital Kayıt</b>
+          <small>Pratik ve Sürekli</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span class="ico">⬡</span>
+        <div>
+          <b>Veri Güvenliği</b>
+          <small>Yetkiye Dayalı Erişim</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span class="ico">ϟ</span>
+        <div>
+          <b>Esnek Kullanım</b>
+          <small>Farklı Alanlara Uyumlu</small>
+        </div>
+      </div>
+
+      <div class="feature">
+        <span class="ico">∞</span>
+        <div>
+          <b>Sürekli Gelişim</b>
+          <small>Yeni Modüllerle Büyür</small>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ÇÖZÜMLER -->
+
+  <section class="section shell" id="cozumler">
+
+    <div class="section-title reveal">
+      <span class="eyebrow">MG TAG EKOSİSTEMİ</span>
+
+      <h2>
+        Tek Sistem.
+        <span class="gradient">Birçok Çözüm.</span>
+      </h2>
+
+      <p>
+        Günlük hayatın farklı alanları için tasarlanan
+        dijital kimlik altyapısı.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <article class="solution reveal">
+        <span class="symbol">🚘</span>
+        <h3>Araçlar</h3>
+        <p>
+          Bakım geçmişi ve araç bilgilerine
+          NFC etiketiyle kolay erişim.
+        </p>
+        <span class="tag">İLK ODAĞIMIZ →</span>
+      </article>
+
+      <article class="solution reveal">
+        <span class="symbol">🐾</span>
+        <h3>Evcil Hayvanlar</h3>
+        <p>
+          Evcil dostlarınız için dijital kimlik
+          ve bilgi kartları.
+        </p>
+        <span class="tag">YAKINDA</span>
+      </article>
+
+      <article class="solution reveal">
+        <span class="symbol">▣</span>
+        <h3>Kişisel Kimlik</h3>
+        <p>
+          Paylaşılabilir dijital tanıtım
+          ve iletişim bilgileri.
+        </p>
+        <span class="tag">PLANLANIYOR</span>
+      </article>
+
+      <article class="solution reveal">
+        <span class="symbol">✦</span>
+        <h3>Daha Fazlası</h3>
+        <p>
+          Yeni ihtiyaçlara göre genişleyebilen
+          modüler çözümler.
+        </p>
+        <span class="tag">GELİŞTİRİLİYOR</span>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- NASIL ÇALIŞIR -->
+
+  <section class="section shell" id="nasil">
+
+    <div class="section-title reveal">
+      <span class="eyebrow">3 BASİT ADIM</span>
+
+      <h2>
+        Nasıl <span class="gradient">Çalışır?</span>
+      </h2>
+    </div>
+
+    <div class="steps">
+
+      <div class="step reveal">
+        <span class="number">1</span>
+        <span class="emoji">📱</span>
+
+        <div>
+          <h3>NFC Okut</h3>
+          <p>
+            Telefonunla kart veya etiketi okut;
+            desteklenmeyen cihazlarda bağlantı
+            ya da QR kod kullan.
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <span class="number">2</span>
+        <span class="emoji">▤</span>
+
+        <div>
+          <h3>Bilgileri Gör</h3>
+          <p>
+            Yetkilendirilmiş bilgileri ve tanımlı
+            kayıtları hızlıca görüntüle.
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <span class="number">3</span>
+        <span class="emoji">↻</span>
+
+        <div>
+          <h3>Güncel Kal</h3>
+          <p>
+            Yetkili kullanıcılar kayıtları günceller;
+            bilgiler tek yerde düzenli kalır.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AVANTAJLAR -->
+
+  <section class="section shell" id="avantajlar">
+
+    <div class="section-title reveal">
+      <span class="eyebrow">NEDEN MG TAG?</span>
+
+      <h2>
+        Dijital Dünyaya
+        <span class="gradient">Akıllı Geçiş</span>
+      </h2>
+    </div>
+
+    <div class="advantage">
+
+      <div class="reveal">
+        <h3>⚡ Hızlı Erişim</h3>
+        <p>
+          Tek bir dokunuşla ilgili bilgilere
+          ulaşmayı kolaylaştırır.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <h3>🔒 Kontrollü Bilgi</h3>
+        <p>
+          Hangi bilgilerin gösterileceğini
+          kullanım senaryosuna göre belirleyin.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <h3>✦ Büyüyen Altyapı</h3>
+        <p>
+          Araçlardan başlayıp yeni kategorilere
+          genişleyen bir sistem.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- HAKKIMIZDA -->
+
+  <section class="section shell" id="hakkimizda">
+
+    <div class="section-title reveal">
+      <span class="eyebrow">HAKKIMIZDA</span>
+
+      <h2>
+        MG <span class="gradient">TAG</span>
+      </h2>
+
+      <p>
+        MG TAG, fiziksel kart ve etiketlerle dijital
+        kayıtları buluşturmayı hedefleyen çok amaçlı
+        bir dijital kimlik ve takip projesidir.
+        İlk aşamada araç bakım geçmişi deneyimine
+        odaklanıyoruz.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- İLETİŞİM -->
+
+  <section class="shell" id="iletisim">
+
+    <div class="cta reveal">
+
+      <h2>
+        Geleceğe
+        <span class="gradient">Dokun.</span>
+      </h2>
+
+      <p>
+        MG TAG çözümleri hakkında bilgi almak veya
+        iş birliği görüşmek için iletişime geçin.
+      </p>
+
+      <a
+        class="btn gold"
+        href="mailto:iletisim@mgtag.com.tr?subject=MG%20TAG%20Bilgi%20Talebi"
+      >
+        ✉ E-posta Gönder
+      </a>
+
+      <p style="font-size:12px;margin-top:18px">
+        İletişim adresi örnektir; yayına almadan önce doğrulayın.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- YETKİLİ GİRİŞİ -->
+
+  <section
+    class="shell"
+    id="yetkili"
+    style="padding-bottom:55px;text-align:center"
+  >
+
+    <h2>
+      Yetkili
+      <span class="gradient">Girişi</span>
+    </h2>
+
+    <p style="color:var(--muted)">
+      Usta paneli bağlantısı, mevcut panel adresi
+      doğrulandıktan sonra burada etkinleştirilecek.
+    </p>
+
+  </section>
+
+</main>
+
+<!-- ALT BİLGİ -->
+
+<footer class="footer">
+
+  <div class="shell">
+
+    <div>
+      © <span id="year"></span> MG TAG ·
+      Dijital Kimlik & Takip Sistemi
+    </div>
+
+    <div>
+      TEK SİSTEM · ÇOK ALAN · SINIRSIZ GELİŞİM
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+  // Yılı otomatik güncelle
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+  // Mobil menü
+  const menu = document.getElementById('menu');
+  const nav = document.getElementById('navlinks');
+
+  menu.addEventListener('click', () => {
+
+    const opened = nav.classList.toggle('open');
+
+    menu.setAttribute('aria-expanded', opened);
+
+    menu.textContent = opened ? '✕' : '☰';
+
+  });
+
+  // Menü bağlantısına basınca kapat
+  nav.querySelectorAll('a').forEach(a => {
+
+    a.addEventListener('click', () => {
+
+      nav.classList.remove('open');
+
+      menu.setAttribute('aria-expanded', 'false');
+
+      menu.textContent = '☰';
+
+    });
+
+  });
+
+  // Kaydırma animasyonları
+  const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(e => {
+
+      if (e.isIntersecting) {
+
+        e.target.classList.add('visible');
+
+        observer.unobserve(e.target);
+
+      }
+
+    });
+
+  }, { threshold: .08 });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+
+</script>
+
+</body>
+</html>
